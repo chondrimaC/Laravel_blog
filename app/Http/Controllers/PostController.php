@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use Session;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -13,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::orderBy('id', 'desc')->simplePaginate(3);
+        return view('posts.index')->with('posts', $posts);
     }
 
     /**
@@ -23,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -34,7 +38,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'body' => 'required'
+        ]);
+
+        $posts = new Post;
+        $posts->title = $request->title;
+        $posts->body = $request->body;
+        $posts->save();
+
+        Session::flash('success', 'The Blog Post is succesfully created! ');
+
+        return redirect()->route('posts.show', $posts->id);
     }
 
     /**
@@ -45,7 +61,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**
@@ -56,7 +73,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.edit')->with('post', $post);
     }
 
     /**
@@ -68,7 +86,19 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'body' => 'required'
+        ]);
+
+        $posts = Post::find($id);
+        $posts->title = $request->input('title');
+        $posts->body = $request->input('body');
+        $posts->save();
+
+        Session::flash('success', 'The Blog Post is succesfully saved! ');
+
+        return redirect()->route('posts.show', $posts->id);
     }
 
     /**
@@ -79,6 +109,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+        Session::flash('success', 'The Blog Post is succesfully deleted! ');
+
+        return redirect()->route('posts.index');
     }
 }

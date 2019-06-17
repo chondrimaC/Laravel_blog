@@ -6,13 +6,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"> <!-- CHANGE ACTIVE CLASS FOR EVERY PAGE -->
+            <li class="nav-item {{ Request::is('/') ? 'active' : '' }}"> <!-- CHANGE ACTIVE CLASS FOR EVERY PAGE -->
                 <a class="nav-link" href="{{ url('/') }}">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('about') }}">About</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('contact') }}">Contact</a>
             </li>
         </ul>

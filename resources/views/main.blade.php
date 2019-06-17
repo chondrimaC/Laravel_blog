@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    @include('partials._head')    
+    @include('partials._head')
 </head>
 
 <body>
@@ -11,6 +11,7 @@
 <br>
 
 <div class="container">
+    @include('partials._messages')
     @yield('content')
 
     @include('partials._footer')
@@ -18,7 +19,7 @@
 
 @include('partials._javascript')
 
-@yield('script')
+@yield('scripts')
 
 </body>
 
