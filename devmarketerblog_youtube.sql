@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2019 at 12:13 PM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.2.18
+-- Generation Time: Jun 18, 2019 at 09:28 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -65,6 +65,7 @@ CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -73,14 +74,11 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `body`, `created_at`, `updated_at`) VALUES
-(1, 'Updating Post One', 'Post One Body', '2019-06-15 22:43:32', '2019-06-17 05:09:53'),
-(2, 'Updated Post two', 'Post Two body Updated', '2019-06-15 22:47:10', '2019-06-17 05:28:14'),
-(3, 'Post Three', 'Post three body', '2019-06-15 22:49:37', '2019-06-15 22:49:37'),
-(5, 'Post Four', 'Post Four body', '2019-06-15 23:59:22', '2019-06-15 23:59:22'),
-(6, 'Post Five', 'Post Five body part', '2019-06-16 00:15:11', '2019-06-16 00:15:11'),
-(7, 'Post Six', 'Post Six body', '2019-06-16 00:30:12', '2019-06-16 00:30:12'),
-(10, 'Post Ten', 'Post ten body', '2019-06-16 09:02:44', '2019-06-16 09:02:44');
+INSERT INTO `posts` (`id`, `title`, `body`, `slug`, `created_at`, `updated_at`) VALUES
+(2, 'Updated Post One', 'Post One body Updated', 'first-post', '2019-06-15 22:47:10', '2019-06-17 05:28:14'),
+(3, 'Post Two', 'Post two body', 'second-post', '2019-06-15 22:49:37', '2019-06-15 22:49:37'),
+(11, 'This is Third Post', 'This is third post body.', 'third-post', '2019-06-18 08:14:31', '2019-06-18 08:14:31'),
+(13, 'Post Four', 'This is the fourth post body', 'fourth-post', '2019-06-18 08:43:50', '2019-06-18 08:43:50');
 
 -- --------------------------------------------------------
 
@@ -348,7 +346,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
