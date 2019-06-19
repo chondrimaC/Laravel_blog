@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <dl class="row">
                         <dt class="col-sm-6">URL:</dt>
-                        <dd class="col-sm-6"><a href="{{ url($post->slug) }}"> {{ url($post->slug) }} </a></dd>
+                        <dd class="col-sm-6"><a href="{{ route('blog.single', $post->slug) }}"> {{ route('blog.single', $post->slug) }} </a></dd>
                     </dl>
                     <dl class="row">
                         <dt class="col-sm-6">Created At: </dt>

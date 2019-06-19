@@ -14,6 +14,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
+
     public function index()
     {
         $posts = Post::orderBy('id', 'desc')->simplePaginate(3);
@@ -88,13 +93,28 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'title' => 'required|max:255',
-            'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
-            'body' => 'required'
-        ]);
+        // /************ This is best *********************/
+        // $this->validate($request, [
+        //     'title' => 'required|max:255',
+        //     'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug,'. $id,
+        //     'body' => 'required'
+        // ]);
+        // /*********************************/
 
         $posts = Post::find($id);
+
+        if ($request->input('slug') == $posts->slug) {
+            $this->validate($request, [
+                'title' => 'required|max:255',
+                'body' => 'required'
+            ]);
+        } else {
+            $this->validate($request, [
+                'title' => 'required|max:255',
+                'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+                'body' => 'required'
+            ]);
+        }
         $posts->title = $request->input('title');
         $posts->body = $request->input('body');
         $posts->slug = $request->input('slug');

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2019 at 09:28 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Jun 19, 2019 at 12:11 PM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -78,7 +78,7 @@ INSERT INTO `posts` (`id`, `title`, `body`, `slug`, `created_at`, `updated_at`) 
 (2, 'Updated Post One', 'Post One body Updated', 'first-post', '2019-06-15 22:47:10', '2019-06-17 05:28:14'),
 (3, 'Post Two', 'Post two body', 'second-post', '2019-06-15 22:49:37', '2019-06-15 22:49:37'),
 (11, 'This is Third Post', 'This is third post body.', 'third-post', '2019-06-18 08:14:31', '2019-06-18 08:14:31'),
-(13, 'Post Four', 'This is the fourth post body', 'fourth-post', '2019-06-18 08:43:50', '2019-06-18 08:43:50');
+(13, 'Post Four', 'This is the fourth post body', 'fourth-post', '2019-06-18 08:43:50', '2019-06-19 05:16:05');
 
 -- --------------------------------------------------------
 
@@ -301,7 +301,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (197, 'Miss Betty Little', 'herta.kautzer@example.net', '2019-06-17 07:21:28', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'X55zoEDoVM', '2019-06-17 07:21:35', '2019-06-17 07:21:35'),
 (198, 'Miss Lexie Corkery MD', 'ernie00@example.com', '2019-06-17 07:21:28', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'hmmRns9rJM', '2019-06-17 07:21:35', '2019-06-17 07:21:35'),
 (199, 'Mr. Garrison Johnson', 'vita15@example.org', '2019-06-17 07:21:28', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Q3SwC3Iyws', '2019-06-17 07:21:35', '2019-06-17 07:21:35'),
-(200, 'Dalton Weimann DVM', 'ullrich.garnett@example.com', '2019-06-17 07:21:28', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'RZUGkOz1hS', '2019-06-17 07:21:35', '2019-06-17 07:21:35');
+(200, 'Dalton Weimann DVM', 'ullrich.garnett@example.com', '2019-06-17 07:21:28', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'RZUGkOz1hS', '2019-06-17 07:21:35', '2019-06-17 07:21:35'),
+(201, 'Chondrima Chowdhury', 'chondrima.xponent@gmail.com', NULL, '$2y$10$Fb0LI3NqZZ9Sg2V.N.zt0.Ct5vQv2GkKgvHe1wiKao3vqAXzIll06', NULL, '2019-06-19 09:02:49', '2019-06-19 09:02:49');
 
 --
 -- Indexes for dumped tables
@@ -352,7 +353,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label for="slug">Slug:</label>
-                    <input type="text" id="slug" name="slug" class="form-control" value="{{$post->title}}" required minlength="5" maxlength="255">
+                    <input type="text" id="slug" name="slug" class="form-control" value="{{$post->slug}}" required minlength="5" maxlength="255">
                 </div>
                 <div class="form-group">
                     <label for="body">Post Body:</label>
